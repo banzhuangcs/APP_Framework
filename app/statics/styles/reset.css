@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+body, div, p,
+dl, dt, dd, ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+input,textarea {
+  margin: 0;
+  padding: 0;
+}
+
+input, textarea, select, option {
+  font-size: inherit;
+  outline: none;
+  vertical-align: top;
+}
+
+a {
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+@font-face {
+  font-family: "AppFramework";
+  src: url("../fonts/ionicons.ttf") format("truetype"), url("../fonts/ionicons.woff") format("woff");
+}

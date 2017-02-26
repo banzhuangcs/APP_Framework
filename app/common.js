@@ -4,17 +4,33 @@
  * @since V1.0.0 2017-2-2
 */
 
-var expandPath = './expands';
-var componentPath = './components';
+var corePath = 'cores/';
+var expandPath = 'expands/';
+var componentPath = 'components/';
+var sourcePath = 'src/';
 
 require.config({
   shim: {
-    '_': {
+    'underscore': {
       exports: '_'
     }
   },
 
   paths: {
-    'main': 'src/main'
+    'text': corePath + 'require.text',
+    'jquery': corePath + 'zepto',
+    'underscore': corePath + 'underscore',
+    'backbone': corePath + 'backbone',
+    'viewportAdapter': expandPath + 'viewportAdapter',
+    'main': sourcePath + 'main',
+
+    /* 全局控制器 */
+    'GlobalRouter': sourcePath + 'routers/GlobalRouter',
+
+    /* 页面类(View) */
+    'IndexView': sourcePath + 'views/IndexView',
+
+    /* 组件集  */
+    'Header': componentPath + 'Header/Header'
   }
 });

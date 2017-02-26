@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+img.border {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+img.radius {
+  border-radius: 6px;
+}
+
+img.circle {
+  border-radius: 100%;
+}

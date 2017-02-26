@@ -29,13 +29,13 @@
       Card Component
         CardMessage Component
           Message Component
-        CardContent Component
+        card-content
           image
           text
-        CardAttr Component
+        card-attr
            CardState Component
            CardUserList Component
-        CardComment Component
+        card-comment Component
 
      Toolbar Component
 
@@ -82,6 +82,8 @@
 
 公共组件包括：Tab Component、Search Component、Dialog Component、Loading Component、Calendar Component、FoldPanel Component、Slide Component。
 全局动画组件：InterludeAnimation Component、FadeInOutAnimation Component。
+原子组件：FillState Component、Checkbox Component、Switch Component。
+
 
 二、全局控制器(Controller)
 通过Backbone的Router和History模块，响应URL，根据锚点规则调用Action，如果在Action中实例化View，此时的View相当于前端MVC的Controller了，接收响应操作，调用Model、Model的属性改变渲染页面。

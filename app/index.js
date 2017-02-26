@@ -5,5 +5,9 @@
 */
 
 require(['./common'], function () {
-  require(['main'])
+  require(['viewportAdapter'], function (viewport) {
+    viewport(750);
+
+    require(['main']);
+  });
 });
