@@ -2,6 +2,8 @@
 
 .header {
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 .16rem;
   display: -webkit-box;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -11,14 +13,32 @@
 
 .header-nav-icon {
   display: block;
-  width: .5rem;
-  height: .32rem;
+  width: .3rem;
+  height: .4rem;
+}
+
+.header-icon:after {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  font-size: .4rem;
+  font-family: "AppFramework";
+}
+
+.header-nav-icon:after {
+  content: "\f20d";
 }
 
 .header-more-icon {
   display: block;
   width: .6rem;
-  height: .6rem;
+  line-height: .6rem;
+  text-align: center;
+}
+
+.header-more-icon:after {
+  content: "\f397";
 }
 
 .header-center {
