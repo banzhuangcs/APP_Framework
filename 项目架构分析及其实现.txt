@@ -10,7 +10,7 @@
 
   List Component
     Message Component
-      messageImage
+      messageImg
       messageInner
         messageTitle
         messageSubTitle

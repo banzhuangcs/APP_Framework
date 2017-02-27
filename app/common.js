@@ -31,6 +31,7 @@ require.config({
     'IndexView': sourcePath + 'views/IndexView',
 
     /* 组件集  */
-    'Header': componentPath + 'Header/Header'
+    'Header': componentPath + 'Header/Header',
+    'Message': componentPath + 'Message/Message'
   }
 });

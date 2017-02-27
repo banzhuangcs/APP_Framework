@@ -1340,7 +1340,7 @@
         //
         route: function(route, name, callback) {
             if (!_.isRegExp(route)) route = this._routeToRegExp(route);
-            
+
             if (_.isFunction(name)) {
                 callback = name;
                 name = '';
@@ -1350,7 +1350,7 @@
             Backbone.history.route(route, function(fragment) {
                 var args = router._extractParameters(route, fragment);
                 //console.log(args, '火车道');
-                // 
+                //
                 if (router.execute(callback, args, name) !== false) {
                     router.trigger.apply(router, ['route:' + name].concat(args));
                     router.trigger('route', name, args);
@@ -1393,7 +1393,7 @@
                     return optional ? match : '([^/?]+)';
                 })
                 .replace(splatParam, '([^?]*?)');
-     
+
             return new RegExp('^' + route + '(?:\\?([\\s\\S]*))?$');
         },
 
