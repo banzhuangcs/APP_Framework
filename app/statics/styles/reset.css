@@ -18,6 +18,7 @@ a {
   background: transparent;
   appearance: none;
   -webkit-appearance: none;
+  text-decoration: none;
 }
 
 img {

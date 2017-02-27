@@ -21,7 +21,7 @@ define(['backbone', 'Header', 'Message', 'Footer'], function (Backbone, Header, 
         className: 'message bg-white pt2 pb2 pl2 pr2'
       });
 
-      this.$el.append(Header.render());
+      this.$el.append(Header.render('首页'));
       this.$el.append(message1.render());
       this.$el.append(message2.render());
       this.$el.append(message3.render());

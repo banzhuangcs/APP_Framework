@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.card-content{
+	top: 44px;
+    bottom: 50px;
+    overflow: hidden;
+    background: #efeff4;
+    overflow-y: auto;
+    position: absolute;
+}
