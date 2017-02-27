@@ -1,0 +1,49 @@
+.foot-toolbar {
+	position: absolute;
+    left: 0;
+	bottom: 0;
+	height: 50px;
+	background:#f7f7f8;
+	z-index: 1000;
+    width: 100%;
+}
+
+
+.foot-toolbar-inner{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 0.4rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    font-size: .5rem;
+}
+
+.foot-toolbar a.foot-tab-link {
+    position: relative;
+    overflow: hidden; 
+    width: 100%;
+    text-align: center;
+    padding-top: .04rem;
+    padding-bottom: .04rem;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.active{
+	color: #1ABC9C;
+}

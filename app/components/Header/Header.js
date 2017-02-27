@@ -7,7 +7,7 @@
 define(['jquery', 'text!Header.html'], function ($, headerTpl) {
   return {
     render: function () {
-      return 'header';
+      return '1ss';
     }
   };
 });

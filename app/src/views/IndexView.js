@@ -4,10 +4,11 @@
  * @since V1.0.0 2017-2-2
 */
 
-define(['backbone', 'Header'], function (Backbone, Header) {
+define(['backbone', 'Header', 'Footer'], function (Backbone, Header, Footer) {
   var IndexView = Backbone.View.extend({
     initialize: function () {
       this.$el.append(Header.render());
+      this.$el.append(Footer.render());
     },
 
     render: function () {
