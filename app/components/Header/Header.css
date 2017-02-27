@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.header {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+}
+
+.header-nav-icon {
+  display: block;
+  width: .5rem;
+  height: .32rem;
+}
+
+.header-more-icon {
+  display: block;
+  width: .6rem;
+  height: .6rem;
+}
+
+.header-center {
+  -webkit-box-flex: 1;
+  text-align: center;
+  line-height: .88rem;
+}

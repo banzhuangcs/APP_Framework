@@ -4,7 +4,7 @@
  * @since V1.0.0 2017-2-2
 */
 
-require(['./common'], function () {
+require(['common'], function () {
   require(['viewportAdapter'], function (viewport) {
     viewport(750);
 

@@ -25,7 +25,29 @@ img {
   vertical-align: middle;
 }
 
+body {
+  font-family: Helvetica, Arial, "Hiragino Sans GB", 'Microsoft yahei', sans-serif;
+}
+
 @font-face {
   font-family: "AppFramework";
   src: url("../fonts/ionicons.ttf") format("truetype"), url("../fonts/ionicons.woff") format("woff");
+}
+
+@media screen and (max-width: 319px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 400px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 401px) {
+  body {
+    font-size: 20px;
+  }
 }
