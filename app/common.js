@@ -32,6 +32,7 @@ require.config({
 
     /* 组件集  */
     'Header': componentPath + 'Header/Header',
-    'Message': componentPath + 'Message/Message'
+    'Message': componentPath + 'Message/Message',
+    'Footer': componentPath + 'Footer/Footer'
   }
 });

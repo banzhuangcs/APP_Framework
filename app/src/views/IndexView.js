@@ -4,7 +4,7 @@
  * @since V1.0.0 2017-2-2
 */
 
-define(['backbone', 'Header', 'Message'], function (Backbone, Header, Message) {
+define(['backbone', 'Header', 'Message', 'Footer'], function (Backbone, Header, Message, Footer) {
   var IndexView = Backbone.View.extend({
     initialize: function () {
       /* 测试数据 */
@@ -26,6 +26,7 @@ define(['backbone', 'Header', 'Message'], function (Backbone, Header, Message) {
       this.$el.append(message2.render());
       this.$el.append(message3.render());
       this.$el.append(message4.render());
+      this.$el.append(Footer.render());
     },
 
     render: function () {
