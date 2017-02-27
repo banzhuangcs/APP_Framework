@@ -29,8 +29,8 @@ define([
         alert('toggle');
       },
 
-      render: function () {
-        return this.$el.html(_.template(headerTpl)({ title: '主页' }));
+      render: function (value) {
+        return this.$el.html(_.template(headerTpl)({ title: value }));
       }
     });
 

@@ -1,0 +1,20 @@
+概念：等比划分元素又叫弹性布局
+总共有多少属性
+flex-direction: 子元素排列方向 row: 水平排列；row-reverse: 水平排列 元素顺序相反；column: 垂直排列 column-reverse: 垂直排列 元素顺序相反；
+flex-wrap:  是否换行 normal：不换行 wrap: 换行
+flex-flow: flex-direction 和 flex-wrap的简写
+justify-content：定义了子元素在当前主轴的对齐方式
+  flex-start: 左对齐
+  flex-end: 右对齐
+  center: 居中对齐
+  space-between: 两端对齐，其余的元素之间的间叙相等
+align-items: 定义了子元素在交叉轴的对齐方式
+  flex-start: 上对齐
+  flex-end: 下对齐
+  center: 上下居中
+  stretch: 高度相等
+  baseline: 文字底部相等
+
+在子元素的
+flex-grow: 等比划分容器 0：如果出现剩余空间也不自适应的放大
+flex-shrink: 等比划分容器 0：如果剩余空间不够也不会自适应的缩小

@@ -34,6 +34,8 @@ require.config({
     /* 组件集  */
     'Header': componentPath + 'Header/Header',
     'Footer': componentPath + 'Footer/Footer',
-    'Card': componentPath + 'Card/Card'
+    'Card': componentPath + 'Card/Card',
+    'Message': componentPath + 'Message/Message',
+    'Footer': componentPath + 'Footer/Footer'
   }
 });

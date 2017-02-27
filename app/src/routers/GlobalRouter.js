@@ -7,7 +7,8 @@
 define(['backbone'], function (Backbone) {
   var GlobalRouter = Backbone.Router.extend({
     routes: {
-      '': 'index'
+      '': 'index',
+      'dynamic': 'dynamic'
     },
 
     initialize: function (views) {
@@ -16,7 +17,12 @@ define(['backbone'], function (Backbone) {
 
     index: function () {
       this.views['index'].render();
+    },
+
+    dynamic: function () {
+      this.views['dynamic'].render();
     }
+    
   });
 
   return function (views) {
