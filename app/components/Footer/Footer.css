@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .foot-toolbar {
 	position: absolute;
     left: 0;
@@ -8,14 +10,13 @@
     width: 100%;
 }
 
-
 .foot-toolbar-inner{
 	position: absolute;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    padding: 0 0.4rem;
+    padding: 0 .08rem;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     display: -webkit-box;
@@ -30,7 +31,8 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
-    font-size: .5rem;
+    font-size: .15rem;
+    border-top:1px solid #d2cdcd;
 }
 
 .foot-toolbar a.foot-tab-link {
@@ -38,12 +40,103 @@
     overflow: hidden; 
     width: 100%;
     text-align: center;
-    padding-top: .04rem;
-    padding-bottom: .04rem;
+	padding-top: 4px;
+    padding-bottom: 4px;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
 
-.active{
+.foot-toolbar a {
+    color: #929292;
+}
+
+.foot-toolbar-inner .foot-tab-link.active{
 	color: #1ABC9C;
+}
+
+.ion-ios-home:before {
+	content: "\f448";
+}
+
+.ion-star:before {
+    content: "\f24e";
+}
+
+.ion-android-contacts:before {
+    content: "\f2d9";
+}
+
+.ion-android-person:before {
+    content: "\f3a0";
+}
+
+.icon:before{
+	display: inline-block;
+    font-family: "AppFramework";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.foot-toolbar a.foot-tab-link i {
+    font-style:normal;
+    font-size: .50rem;
+}
+
+.foot-toolbar a.foot-tab-link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.ion{
+	position: relative;
+}
+
+.ion .badge {
+    display: inline-block;
+    position: absolute;
+    left: 100%;
+    top: -2px;
+    margin-left: -.07rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 0.1rem;
+    line-height: 1.4;
+    padding: 1px 5px;
+    background: #F4634D;
+    color: #fff;
+    border-radius: 1rem;
+}
+
+.foot-toolbar a.foot-tab-link label {
+    display: block;
+    font-size: .25rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
