@@ -28,6 +28,7 @@ require.config({
     'GlobalRouter': sourcePath + 'routers/GlobalRouter',
 
     /* 页面类(View) */
+    'SuperView': sourcePath + 'views/SuperView',
     'IndexView': sourcePath + 'views/IndexView',
     'DynamicView': sourcePath + 'views/DynamicView',
 
@@ -36,5 +37,6 @@ require.config({
     'Footer': componentPath + 'Footer/Footer',
     'Card': componentPath + 'Card/Card',
     'Message': componentPath + 'Message/Message',
+    'MessageList': componentPath + 'MessageList/MessageList'
   }
 });

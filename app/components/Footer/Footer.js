@@ -48,7 +48,5 @@ define([
 
     });
 
-    return new Footer({
-      className: 'foot-toolbar'
-    });
+    return Footer;
 });

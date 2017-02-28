@@ -15,10 +15,15 @@ define([
       },
 
       initialize: function () {
-        Backbone
-          .$('<style type="text/css"></style>')
+        var $ = Backbone.$;
+        var styleId = 'header_css';
+
+        if (!$('#' + styleId).length) {
+          Backbone
+          .$('<style type="text/css" id="'+ styleId +'"></style>')
           .html(headerCss)
-          .prependTo(document.head);
+          .prependTo(document.head);  
+        }        
       },
 
       handleClick: function () {
@@ -34,7 +39,5 @@ define([
       }
     });
 
-    return new Header({
-      className: 'header bg-green'
-    });
+    return Header;
 });
