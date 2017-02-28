@@ -36,6 +36,5 @@ require.config({
     'Footer': componentPath + 'Footer/Footer',
     'Card': componentPath + 'Card/Card',
     'Message': componentPath + 'Message/Message',
-    'Footer': componentPath + 'Footer/Footer'
   }
 });

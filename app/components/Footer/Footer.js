@@ -23,7 +23,23 @@ define([
       },
 
       handleClick: function (ev) {
-        alert(ev.currentTarget.href);
+        var badge = this.$('.badge').text();
+        var url = ev.currentTarget.href;
+        var anchor = url.substring(42);
+        switch (anchor){
+            case 'mainView':
+            alert('首页');
+            break;
+            case 'subjectView':
+            alert('动态');
+            break;
+            case 'caseView':
+            alert('好友');
+            break;
+            case 'settingView':
+            alert('我的'+badge);
+            break;
+        }
       },
 
       render: function () {
