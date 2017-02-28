@@ -4,41 +4,43 @@
  * @since V1.0.0 2017-2-2
 */
 
-define(['backbone', 'Header', 'Message', 'Footer'], function (Backbone, Header, Message, Footer) {
-  var IndexView = Backbone.View.extend({
-    initialize: function () {
-      /* 测试数据 */
-      var message1 = new Message({
-        className: 'message bg-white pt2 pb2 pl2 pr2'
-      });
-      var message2 = new Message({
-        className: 'message bg-white pt2 pb2 pl2 pr2'
-      });
-      var message3 = new Message({
-        className: 'message bg-white pt2 pb2 pl2 pr2'
-      });
-      var message4 = new Message({
-        className: 'message bg-white pt2 pb2 pl2 pr2'
-      });
+define([
+  'jquery',
+  'underscore',
+  'SuperView',
+  'Header', 
+  'MessageList', 
+  'Footer'], function ($, _, SuperView, Header, MessageList, Footer) {
+    var IndexView = Backbone.View.extend({
+      initialize: function (options) {
+        SuperView.call(this, options);
 
-      this.$el.append(Header.render('首页'));
-      this.$el.append(message1.render());
-      this.$el.append(message2.render());
-      this.$el.append(message3.render());
-      this.$el.append(message4.render());
-      this.$el.append(Footer.render());
-    },
+        this.header = new Header({
+          className: 'header bg-green'
+        });                   
+        this.footer = new Footer({
+          className: 'foot-toolbar'
+        }); 
+        this.messageList = new MessageList({
+          className: 'message-list',
+          data: [{
+            className: 'message pt2 pb2 pl2 pr2 bg-white'
+          }, {
+            className: 'message pt2 pb2 pl2 pr2 bg-white'
+          }]
+        });
 
-    render: function () {
-      Backbone.$(document.body).append(this.$el);
-    }
-  });
+        this.$el.append(this.header.render('首页'));
+        this.$el.append(this.messageList.render());
+        this.$el.append(this.footer.render());
+      }    
+    });
+    
+    _.extend(IndexView.prototype, SuperView.prototype); 
 
-  var indexView = new IndexView({
-    id: 'index',
-    className: 'index'
-  });
-  indexView.funcName = 'index';
-
-  return indexView;
+    return new IndexView({
+      id: 'index',
+      className: 'index',
+      funcName: 'indexView'
+    });
 });

@@ -12,7 +12,7 @@ define(['GlobalRouter', 'IndexView', 'DynamicView'], function (GlobalRouter) {
   args.forEach(function (arg) {
     views[arg.funcName] = arg;
   });
-
+  
   // 开启全局控制器
   GlobalRouter(views);
 });

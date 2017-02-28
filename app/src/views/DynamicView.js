@@ -6,9 +6,17 @@
 
 define(['backbone', 'Header', 'Footer'], function (Backbone, Header, Footer) {
   var DynamicView = Backbone.View.extend({
-    initialize: function () {
-      this.$el.append(Header.render('动态'));
-      this.$el.append(Footer.render());
+    initialize: function (options) {
+      this.funcName = options.className;
+      this.header = new Header({
+        className: 'header bg-green'
+      });
+      this.footer = new Footer({
+        className: 'foot-toolbar' 
+      });
+
+      this.$el.append(this.header.render('动态'));
+      this.$el.append(this.footer.render());
     },
 
     render: function () {
@@ -16,11 +24,8 @@ define(['backbone', 'Header', 'Footer'], function (Backbone, Header, Footer) {
     }
   });
 
-  var DynamicView = new DynamicView({
+  return new DynamicView({
     id: 'dynamic',
     className: 'dynamic'
   });
-  DynamicView.funcName = 'dynamic';
-
-  return DynamicView;
 });
