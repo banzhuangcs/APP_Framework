@@ -34,9 +34,15 @@ define([
       },
 
       createMainDom: function (messageListEl) {
-        $('<div class="main"></div>')
-          .append(messageListEl)
-          .insertBefore(this.$el.children().last());
+        var mainEl = null;
+
+        if (!this.$el.has('.main').length) {
+          mainEl = $('<div class="main"></div>').insertBefore(this.$el.children().last());
+        } else {
+          mainEl = this.$el.find('.main');
+        }
+        
+        mainEl.append(messageListEl);
       }
     });
     

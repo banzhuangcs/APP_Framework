@@ -47,6 +47,6 @@ require.config({
     'MessageList': businessComponentPath + 'MessageList/MessageList',
 
     /* 动画组件 */
-    'ScrollLoading': animationComponentPath + 'ScrollLoading/ScrollLoading'
+    'ScrollLoading': animationComponentPath + 'ScrollLoading'
   }
 });
