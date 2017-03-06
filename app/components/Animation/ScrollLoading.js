@@ -4,7 +4,7 @@
  * @since V1.0.0 2017-2-27
 */
 
-define(['jquery'], function ($) {
+define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
   var defaults = {
     hasMoreData: true,
     hasLoading: false,
@@ -13,7 +13,10 @@ define(['jquery'], function ($) {
     threshold: 100,
     global: window,
     visualHeight: window.innerHeight,
-    loadMore: function () {}
+    itemClass: '',
+
+    // 接收拉取的数据，然后渲染成DOM
+    display: function () {}
   };
 
   var throttle = function (fn, wait) {
@@ -49,8 +52,22 @@ define(['jquery'], function ($) {
     this.hasFirstLoad = true;
     this.finalGlobal = this.getFinalGlobal();
     this.scrollListener = throttle(this.scrollListener.bind(this), 100);
+    this.cacheNodePos = [];
+    this.lazyLoading = new LazyLoading();
+
     this.attachScrollListener();
   }
+
+  ScrollLoad.prototype.updateNodePos = function () {
+    var list = Array.prototype.slice.call($(this.itemClass));
+
+    list.forEach((function (node) {
+      this.cacheNodePos.push({
+        node: node,
+        img: node.querySelector('img')
+      });  
+    }).bind(this));
+  };
 
   ScrollLoad.prototype.attachScrollListener = function () {
     this.global.addEventListener('scroll', this.scrollListener, false); 
@@ -60,7 +77,10 @@ define(['jquery'], function ($) {
   ScrollLoad.prototype.scrollListener = function () {
     if (this.hasLoading || !this.hasMoreData) {
       return;
-    }      
+    }
+    
+    // 懒加载图片  
+    this.lazyLoading.updateImgSrc(this.finalGlobal.scrollTop, this.visualHeight);      
 
     if (this.isBottom() || this.hasFirstLoad) {
       this.hasFirstLoad = false;
@@ -68,9 +88,17 @@ define(['jquery'], function ($) {
       this.showLoadDom('正在加载中...');
 
       this.fetch().then((function (data) {
-        this.loadMore(data.data);
+        this.display(data.data);
         this.hideLoadDom();
         this.actualGlobalHeight = this.finalGlobal.scrollHeight;
+
+        // 缓存子元素的位置
+        this.updateNodePos();
+
+        // 添加子元素用到懒加载处理  
+        this.lazyLoading.append(this.cacheNodePos);
+
+        this.lazyLoading.updateImgSrc(this.finalGlobal.scrollTop, this.visualHeight);  
 
         if (!data.data.length) {
           this.hasMoreData = false;

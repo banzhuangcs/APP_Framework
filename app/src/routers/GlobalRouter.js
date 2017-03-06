@@ -20,11 +20,11 @@ define(['backbone'], function (Backbone) {
       this.views['indexView'].render();
     },
 
-    dynamic: function () {
+    dynamicView: function () {
       this.views['dynamicView'].render();
     },
 
-    friends: function () {
+    friendsView: function () {
       this.views['friendsView'].render();
     }
     

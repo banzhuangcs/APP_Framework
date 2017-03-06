@@ -11,6 +11,9 @@
 .show { display: block; }
 .hide { display: none; }
 
+.fade-out { opacity: 0 }
+.fade-in { opacity: 1 }
+
 .mt0125 { margin-top: .125rem; }
 .mt2 { margin-top: .2rem; }
 .mt25 { margin-top: .25rem; }

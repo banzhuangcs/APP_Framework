@@ -19,12 +19,17 @@ require.config({
   },
 
   paths: {
+    /* 启动文件 */
+    'main': sourcePath + 'main',
+
+    /* 核心底层 */
     'text': corePath + 'require.text',
     'jquery': corePath + 'zepto',
     'underscore': corePath + 'underscore',
     'backbone': corePath + 'backbone',
+
+    /* 基础扩展 */
     'viewportAdapter': expandPath + 'viewportAdapter',
-    'main': sourcePath + 'main',
 
     /* 全局控制器 */
     'GlobalRouter': sourcePath + 'routers/GlobalRouter',
@@ -35,7 +40,6 @@ require.config({
     'DynamicView': sourcePath + 'views/DynamicView',
     'FriendsView': sourcePath + 'views/FriendsView',
     
-    /* 组件集  */
     /* 公共组件 */
     'Header': commonComponentPath + 'Header/Header',
     'Footer': commonComponentPath + 'Footer/Footer',
@@ -47,6 +51,7 @@ require.config({
     'MessageList': businessComponentPath + 'MessageList/MessageList',
 
     /* 动画组件 */
-    'ScrollLoading': animationComponentPath + 'ScrollLoading'
+    'ScrollLoading': animationComponentPath + 'ScrollLoading',
+    'LazyLoading': animationComponentPath + 'LazyLoading'
   }
 });

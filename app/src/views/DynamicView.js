@@ -14,10 +14,8 @@ define([
 'CardList'], function ($, _, SuperView, Backbone, Header, Footer, CardList) {
   var DynamicView = Backbone.View.extend({
     initialize: function (options) {
-
       SuperView.call(this, options);
-
-      this.funcName = options.className;
+      
       this.header = new Header({
         className: 'header bg-green'
       });
