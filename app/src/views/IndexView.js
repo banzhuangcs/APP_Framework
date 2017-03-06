@@ -32,7 +32,6 @@ define([
           }); 
         }.bind(this)), 0);
       },
-
       createMainDom: function (messageListEl) {
         $('<div class="main"></div>')
           .append(messageListEl)

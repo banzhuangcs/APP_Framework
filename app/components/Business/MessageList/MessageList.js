@@ -38,7 +38,6 @@ define(['backbone', 'Message', 'ScrollLoading'], function (Backbone, Message, Sc
       this.messages.forEach(_.bind(function (msg) {
         this.$el.append(msg.render());  
       }, this));
-
       this.callback(this.$el);
     }
   });
