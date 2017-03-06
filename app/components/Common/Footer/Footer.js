@@ -30,8 +30,7 @@ define([
         var anchor = url.substring(str+1,url.length);
         switch (anchor){
             case 'index':
-              var ss = document.getElementsByClassName('.foot-tab-link')[0];
-              console.log(ss);
+                this.
             break;
             case 'dynamic':
               $(ev) .addClass('active');
