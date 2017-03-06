@@ -32,7 +32,7 @@ define([
           });
         });
       },
-
+      
       setStyle: function () {
         this.el.style.cssText = 'height: 100%; overflow: auto';
       },

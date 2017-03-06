@@ -24,14 +24,14 @@ define([
 
       render: function () {
         return this.$el.html(_.template(CardTpl)({ 
-          userImg: require.toUrl('./components/Card/img.jpg'),
+          userImg: require.toUrl('./components/Business/Card/img.jpg'),
           username: '吴彦祖',
           createtime: '2017-3-1',
-          contentImg:require.toUrl('./components/Card/sample.jpg'),
+          contentImg:require.toUrl('./components/Business/Card/sample.jpg'),
           commentcontent:'八路军就拉大栓啊！瞄了一个准！打死个翻译官,火车道就开到济南啊~',
           commentnum:32,
           likes:23,
-          commentUrl:require.toUrl('./components/Card/img.jpg')
+          commentUrl:require.toUrl('./components/Business/Card/img.jpg')
         }));
       }
     });
