@@ -5,10 +5,11 @@
 */
 
 define([
+ 'jquery',
  'backbone',
  'underscore', 
  'text!Footer.html',
- 'text!Footer.css'], function(Backbone, _, FooterTpl, FooterCss){
+ 'text!Footer.css'], function($, Backbone, _, FooterTpl, FooterCss){
     var Footer = Backbone.View.extend({
 
       events:{
@@ -25,19 +26,21 @@ define([
       handleClick: function (ev) {
         var badge = this.$('.badge').text();
         var url = ev.currentTarget.href;
-        var anchor = url.substring(42);
+        var str = url.lastIndexOf('#');
+        var anchor = url.substring(str+1,url.length);
         switch (anchor){
-            case 'mainView':
-            alert('首页');
+            case 'index':
+              var ss = document.getElementsByClassName('.foot-tab-link')[0];
+              console.log(ss);
             break;
-            case 'subjectView':
-            alert('动态');
+            case 'dynamic':
+              $(ev) .addClass('active');
             break;
             case 'caseView':
-            alert('好友');
+              document.getElementsByClassName('.foot-tab-link')[2];
             break;
             case 'settingView':
-            alert('我的'+badge);
+              document.getElementsByClassName('.foot-tab-link')[3];
             break;
         }
       },

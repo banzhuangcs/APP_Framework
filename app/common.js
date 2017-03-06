@@ -31,11 +31,13 @@ require.config({
     'SuperView': sourcePath + 'views/SuperView',
     'IndexView': sourcePath + 'views/IndexView',
     'DynamicView': sourcePath + 'views/DynamicView',
+    'FriendsView': sourcePath + 'views/FriendsView',
 
     /* 组件集  */
     'Header': componentPath + 'Header/Header',
     'Footer': componentPath + 'Footer/Footer',
     'Card': componentPath + 'Card/Card',
+    'CardList': componentPath + 'CardList/CardList',
     'Message': componentPath + 'Message/Message',
     'MessageList': componentPath + 'MessageList/MessageList'
   }
