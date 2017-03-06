@@ -16,11 +16,12 @@ define([
       'click .message-inner': 'handleInterlude'
     },
 
-    initialize: function () {
+    initialize: function (options) {
       Backbone
         .$('<style type="text/css"></style>')
         .html(messageCss)
         .prependTo(document.head);
+      this.model = options.model;
     },
 
     handleInterlude: function () {
@@ -28,7 +29,12 @@ define([
     },
 
     render: function () {
-      return this.$el.html(_.template(messageTpl)({ imgPath: require.toUrl('./components/Message/img.jpg'), title: 'Modal and Button', readCount: 123, commentCount: 123 }));
+      return this.$el.html(_.template(messageTpl)({ 
+        imgPath: require.toUrl('./components/Business/Message/img.jpg'), 
+        title: this.model.title, 
+        readCount: this.model.readCount, 
+        commentCount: this.model.commentCount 
+      }));
     }
   });
 

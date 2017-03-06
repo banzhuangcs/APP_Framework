@@ -9,7 +9,7 @@ define([
   'underscore',
   'SuperView',
   'Header', 
-  'MessageList', 
+  'MessageList',
   'Footer'], function ($, _, SuperView, Header, MessageList, Footer) {
     var IndexView = Backbone.View.extend({
       initialize: function (options) {
@@ -20,20 +20,24 @@ define([
         });                   
         this.footer = new Footer({
           className: 'foot-toolbar'
-        }); 
-        this.messageList = new MessageList({
-          className: 'message-list',
-          data: [{
-            className: 'message pt2 pb2 pl2 pr2 bg-white'
-          }, {
-            className: 'message pt2 pb2 pl2 pr2 bg-white'
-          }]
         });
 
         this.$el.append(this.header.render('首页'));
-        this.$el.append(this.messageList.render());
         this.$el.append(this.footer.render());
-      }    
+        setTimeout((function () {
+          this.messageList = new MessageList({
+            className: 'message-list',
+            callback: this.createMainDom.bind(this),
+            visualHeight: window.innerHeight - this.header.el.offsetHeight - this.footer.el.offsetHeight
+          }); 
+        }.bind(this)), 0);
+      },
+
+      createMainDom: function (messageListEl) {
+        $('<div class="main"></div>')
+          .append(messageListEl)
+          .insertBefore(this.$el.children().last());
+      }
     });
     
     _.extend(IndexView.prototype, SuperView.prototype); 

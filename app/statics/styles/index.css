@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+.index {
+  display: -webkit-flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;  
+  align-items: stretch;
+  height: 100%;
+}
+
+.index .header {
+  height: .88rem;   
+}
+
+.index .foot-toolbar {
+  height: 1rem;
+}
+
+.index .main {
+  height: calc(100% - 1.88rem); 
+}

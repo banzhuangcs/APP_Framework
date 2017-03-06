@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      * {
+      	margin: 0;
+      	padding: 0;
+      }
+
+      .xx {
+		width: 100px;
+		height: 1000px;
+		background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="xx"></div>
+    <script>
+      /*
+      
+        throttle：通过延迟函数的执行时间，达到控制函数执行的次数
+        每隔wait时间，fn就被调用
+       */
+      function throttle (fn, wait, time) {
+      	var timer = null;
+      	var currTime;
+
+        return function () {
+          var args;
+
+          if (!currTime) {
+          	currTime = Date.now();
+          }
+          	
+          if (timer) {
+          	clearTimeout(timer);
+          }
+
+          args = [].slice.call(arguments);
+
+          if (Date.now() - currTime >= wait) {
+          	currTime = Date.now();
+          	fn.apply(null, args);
+
+          }
+
+          timer = setTimeout(function () {
+          	fn.apply(null, args);
+          }, time);
+        };  
+      }
+
+      function debounce () {
+                  
+      }
+ 
+      window.addEventListener('scroll', throttle(function () {
+      	console.log(1);
+      }, 10000, 30));
+
+    </script>
+  </body>
+</html>

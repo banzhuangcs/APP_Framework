@@ -4,6 +4,10 @@
 .fr { float: right; }
 .ib { display: inline-block; }
 
+.tl { text-align: left; }
+.tc { text-align: center; }
+.tr { text-align: right; }
+
 .show { display: block; }
 .hide { display: none; }
 

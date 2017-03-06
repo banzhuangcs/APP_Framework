@@ -26,6 +26,10 @@ img {
   vertical-align: middle;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-weight: 500;
   font-family: Helvetica, Arial, "Hiragino Sans GB", 'Microsoft yahei', sans-serif;

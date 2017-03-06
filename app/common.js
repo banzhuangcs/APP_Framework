@@ -6,7 +6,9 @@
 
 var corePath = 'cores/';
 var expandPath = 'expands/';
-var componentPath = 'components/';
+var animationComponentPath = 'components/Animation/';
+var businessComponentPath = 'components/Business/';
+var commonComponentPath = 'components/Common/';
 var sourcePath = 'src/';
 
 require.config({
@@ -32,12 +34,18 @@ require.config({
     'IndexView': sourcePath + 'views/IndexView',
     'DynamicView': sourcePath + 'views/DynamicView',
 
-    /* 组件集  */
-    'Header': componentPath + 'Header/Header',
-    'Footer': componentPath + 'Footer/Footer',
-    'Card': componentPath + 'Card/Card',
-    'Message': componentPath + 'Message/Message',
-    'Footer': componentPath + 'Footer/Footer',
-    'MessageList': componentPath + 'MessageList/MessageList'
+    /** 组件集  **/
+
+    /* 公共组件 */
+    'Header': commonComponentPath + 'Header/Header',
+    'Footer': commonComponentPath + 'Footer/Footer',
+
+    /* 业务组件 */
+    'Card': businessComponentPath + 'Card/Card',
+    'Message': businessComponentPath + 'Message/Message',
+    'MessageList': businessComponentPath + 'MessageList/MessageList',
+
+    /* 动画组件 */
+    'ScrollLoading': animationComponentPath + 'ScrollLoading/ScrollLoading'
   }
 });
