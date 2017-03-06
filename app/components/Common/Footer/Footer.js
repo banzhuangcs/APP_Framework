@@ -5,10 +5,11 @@
 */
 
 define([
+ 'jquery',
  'backbone',
  'underscore', 
  'text!Footer.html',
- 'text!Footer.css'], function(Backbone, _, FooterTpl, FooterCss){
+ 'text!Footer.css'], function($, Backbone, _, FooterTpl, FooterCss){
     var Footer = Backbone.View.extend({
 
       events:{
@@ -23,7 +24,25 @@ define([
       },
 
       handleClick: function (ev) {
-        alert(ev.currentTarget.href);
+        var badge = this.$('.badge').text();
+        var url = ev.currentTarget.href;
+        var str = url.lastIndexOf('#');
+        var anchor = url.substring(str+1,url.length);
+        switch (anchor){
+            case 'index':
+              var ss = document.getElementsByClassName('.foot-tab-link')[0];
+              console.log(ss);
+            break;
+            case 'dynamic':
+              $(ev) .addClass('active');
+            break;
+            case 'caseView':
+              document.getElementsByClassName('.foot-tab-link')[2];
+            break;
+            case 'settingView':
+              document.getElementsByClassName('.foot-tab-link')[3];
+            break;
+        }
       },
 
       render: function () {

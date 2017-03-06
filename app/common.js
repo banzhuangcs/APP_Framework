@@ -33,15 +33,16 @@ require.config({
     'SuperView': sourcePath + 'views/SuperView',
     'IndexView': sourcePath + 'views/IndexView',
     'DynamicView': sourcePath + 'views/DynamicView',
-
-    /** 组件集  **/
-
+    'FriendsView': sourcePath + 'views/FriendsView',
+    
+    /* 组件集  */
     /* 公共组件 */
     'Header': commonComponentPath + 'Header/Header',
     'Footer': commonComponentPath + 'Footer/Footer',
 
     /* 业务组件 */
     'Card': businessComponentPath + 'Card/Card',
+    'CardList': businessComponentPath + 'CardList/CardList',
     'Message': businessComponentPath + 'Message/Message',
     'MessageList': businessComponentPath + 'MessageList/MessageList',
 

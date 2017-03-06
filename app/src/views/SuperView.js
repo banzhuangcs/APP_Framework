@@ -10,6 +10,7 @@ define(function ($, Backbone) {
   }
 
   SuperView.prototype.render = function () {
+  	//向元素中添加子节点
     document.body.appendChild(this.el);
   };
 
