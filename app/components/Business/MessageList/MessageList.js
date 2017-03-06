@@ -12,7 +12,7 @@ define(['backbone', 'Message', 'ScrollLoading'], function (Backbone, Message, Sc
       this.scrollLoading = new ScrollLoading({
         global: this.el,
         visualHeight: options.visualHeight,
-        dataUrl: '/data.php',
+        dataUrl: 'data.php',
         component: Message,
         loadMore: this.render.bind(this)
       });  
