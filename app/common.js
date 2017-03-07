@@ -52,6 +52,7 @@ require.config({
 
     /* 动画组件 */
     'ScrollLoading': animationComponentPath + 'ScrollLoading',
-    'LazyLoading': animationComponentPath + 'LazyLoading'
+    'LazyLoading': animationComponentPath + 'LazyLoading',
+    'PullLoading': animationComponentPath + 'PullLoading'
   }
 });

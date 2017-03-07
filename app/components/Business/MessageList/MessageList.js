@@ -34,7 +34,7 @@ define([
       },
       
       setStyle: function () {
-        this.el.style.cssText = 'height: 100%; overflow: auto';
+        this.el.style.cssText = 'position: relative; z-index: 1; height: 100%; overflow: auto';
       },
 
       render: function (data) {
