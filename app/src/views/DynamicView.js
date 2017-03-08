@@ -4,48 +4,66 @@
  * @since V1.0.0 2017-2-28
 */
 
-define([
-'jquery',
-'underscore',
-'SuperView',
-'backbone',
-'Header',
-'Footer',
-'CardList'], function ($, _, SuperView, Backbone, Header, Footer, CardList) {
+define(['SuperView', 'CardList', 'PullLoading'], function (SuperView, CardList, PullLoading) {
   var DynamicView = Backbone.View.extend({
     initialize: function (options) {
       SuperView.call(this, options);
-      
-      this.header = new Header({
-        className: 'header bg-green'
-      });
-      this.footer = new Footer({
-        className: 'foot-toolbar' 
-      });
-      this.cardlist = new CardList({
-        className: 'card-content',
-        data: [{
-          className: 'sg-scroll',
-          className: 'sg-list-group'
-        }, {
-          className: 'sg-scroll',
-          className: 'sg-list-group'
-        }]
-      });
 
-      this.$el.append(this.header.render('动态'));
-      this.$el.append(this.footer.render());
-      this.$el.append(this.cardlist.render());
+      // 添加页面所需要的组件
+      this.setHeader('动态');
+      this.setMain();
+      this.setFooter();
+      
+      // 添加CardList
+      this.getCards();
     },
 
-    render: function () {
-      Backbone.$(document.body).append(this.$el);
+    getCards: function () {
+      var self = this;
+
+      setTimeout(function () {
+        new CardList({
+          className: 'card-list',
+          callback: self.setCardList.bind(self),
+          visualHeight: self.mainEl.offsetHeight
+        });
+      }, 0);
+    },
+
+    setCardList: function ($cardListEl) {
+      var cardListEl = $cardListEl[0];
+      this.mainEl.appendChild(cardListEl);
+
+      // 下拉刷新
+      this.pullRefresh(cardListEl);
+    },
+
+    pullRefresh: function (cardListEl) {
+      if (this.pull) {
+        return;
+      }
+
+      this.pull = new PullLoading({
+        global: cardListEl,
+        wrapper: this.mainEl,
+        slideEnough: cardListEl.offsetHeight / 3,
+        onRefresh: function (success, error) {
+          setTimeout(function () {
+            console.log('刷新完成');
+            success();
+          }, 1000);
+        }
+      });
     }
   });
 
-  return new DynamicView({
+  DynamicView.options = {
     id: 'dynamic',
-    className: 'dynamic',
+    className: 'view',
     funcName: 'dynamicView'
-  });
+  };
+
+  Object.assign(DynamicView.prototype, SuperView.prototype);
+
+  return DynamicView;
 });

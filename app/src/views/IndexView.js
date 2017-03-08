@@ -4,66 +4,66 @@
  * @since V1.0.0 2017-2-2
 */
 
-define([
-  'jquery',
-  'underscore',
-  'SuperView',
-  'Header', 
-  'MessageList',
-  'PullLoading',
-  'Footer'], function ($, _, SuperView, Header, MessageList, PullLoading, Footer) {
-    var IndexView = Backbone.View.extend({
-      initialize: function (options) {
-        SuperView.call(this, options);
+define(['SuperView', 'MessageList', 'PullLoading'], function (SuperView, MessageList, PullLoading) {
+  var IndexView = Backbone.View.extend({
+    initialize: function (options) {
+      SuperView.call(this, options);
 
-        this.header = new Header({
-          className: 'header bg-green'
-        });                   
-        this.footer = new Footer({
-          className: 'foot-toolbar'
+      // 添加页面所需要的组件
+      this.setHeader('首页');
+      this.setMain();
+      this.setFooter();
+
+      // 添加消息列表组件
+      this.getMessages();
+    },
+
+    getMessages: function () {
+      var self = this;
+
+      setTimeout(function () {
+        new MessageList({
+          className: 'message-list',
+          callback: self.setMessageList.bind(self),
+          visualHeight: self.mainEl.offsetHeight
         });
+      }, 0);
+    },
 
-        this.$el.append(this.header.render('首页'));
-        this.$el.append(this.footer.render());
-        setTimeout((function () {
-          this.messageList = new MessageList({
-            className: 'message-list',
-            callback: this.createMainDom.bind(this),
-            visualHeight: window.innerHeight - this.header.el.offsetHeight - this.footer.el.offsetHeight
-          }); 
-        }.bind(this)), 0);
-      },
-      createMainDom: function (messageListEl) {
-        var mainEl = null;
+    setMessageList: function ($messageListEl) {
+      var messageListEl = $messageListEl[0];
+      this.mainEl.appendChild(messageListEl);
 
-        if (!this.$el.has('.main').length) {
-          mainEl = $('<div class="main"></div>').insertBefore(this.$el.children().last());
-        } else {
-          mainEl = this.$('.main');
-        }
+      // 下拉刷新
+      this.pullRefresh(messageListEl);
+    },
 
-        mainEl.append(messageListEl);
-
-        // 下拉刷新
-        new PullLoading({
-          global: messageListEl[0],
-          wrapper: mainEl[0],
-          slideEnough: messageListEl[0].offsetHeight / 3,
-          onRefresh: function (success, error) {
-            setTimeout(function () {
-              console.log('刷新完成');
-              success();
-            }, 1000);
-          }
-        });
+    pullRefresh: function (messageListEl) {
+      if (this.pull) {
+        return;
       }
-    });
-    
-    _.extend(IndexView.prototype, SuperView.prototype); 
 
-    return new IndexView({
-      id: 'index',
-      className: 'index',
-      funcName: 'indexView'
-    });
+      this.pull = new PullLoading({
+        global: messageListEl,
+        wrapper: this.mainEl,
+        slideEnough: messageListEl.offsetHeight / 3,
+        onRefresh: function (success, error) {
+          setTimeout(function () {
+            console.log('刷新完成');
+            success();
+          }, 1000);
+        }
+      });
+    }
+  });
+
+  IndexView.options = {
+    id: 'index',
+    className: 'view',
+    funcName: 'indexView'
+  };
+
+  Object.assign(IndexView.prototype, SuperView.prototype);
+
+  return IndexView;
 });

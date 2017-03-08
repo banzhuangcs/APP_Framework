@@ -36,7 +36,7 @@ define([
 
     render: function () {
       return this.$el.html(_.template(messageTpl)({ 
-        imgPath: require.toUrl('./components/Business/Message/img.jpg'), 
+        imgPath: require.toUrl(this.model.imgPath), 
         title: this.model.title, 
         readCount: this.model.readCount, 
         commentCount: this.model.commentCount 

@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-.index {
+.view {
   display: -webkit-flex;
   flex-flow: column nowrap;
   justify-content: space-between;  
@@ -8,15 +8,15 @@
   height: 100%;
 }
 
-.index .header {
+.view .header {
   height: .88rem;   
 }
 
-.index .foot-toolbar {
+.view .foot-toolbar {
   height: 1rem;
 }
 
-.index .main {
+.view .main {
   position: relative;
   height: calc(100% - 1.88rem); 
 }

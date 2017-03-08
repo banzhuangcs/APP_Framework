@@ -38,7 +38,7 @@ define(['jquery'], function ($) {
       var top = obj.top;
       var height = obj.height;
       var img = obj.img;
-      console.log(1);
+
       if (!this.isUpdated(img) && this.isVisual(top, height, scrollTop, visualHeight)) {
         img.classList.add(this.className);
         img.classList.add('fade-in');
@@ -48,7 +48,9 @@ define(['jquery'], function ($) {
   };
 
   LazyLoading.prototype.isUpdated = function (imgNode) {
-    return imgNode.classList.contains(this.className);  
+    return imgNode 
+      ? imgNode.classList.contains(this.className)
+      : true;  
   };
 
   return LazyLoading;

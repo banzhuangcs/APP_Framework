@@ -17,17 +17,25 @@ define(['backbone'], function (Backbone) {
     },
 
     indexView: function () {
+      this.destroyView();
       this.views['indexView'].render();
     },
 
     dynamicView: function () {
+      this.destroyView();
       this.views['dynamicView'].render();
     },
 
     friendsView: function () {
+      this.destroyView();
       this.views['friendsView'].render();
+    },
+
+    destroyView: function () {
+      Object.keys(this.views).forEach((function (name) {
+        this.views[name].destroy();
+      }).bind(this));
     }
-    
   });
 
   return function (views) {

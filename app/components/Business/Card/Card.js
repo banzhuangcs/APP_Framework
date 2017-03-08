@@ -4,38 +4,37 @@
  * @since V1.0.0 2017-2-28
 */
 define([
- 'backbone',
- 'underscore',
- 'text!Card.html',
- 'text!Card.css'], function (Backbone, _, CardTpl, CardCss) {
+  'require',
+  'backbone',
+  'underscore',
+  'text!Card.html',
+  'text!Card.css'], function (require, Backbone, _, cardTpl, cardCss) {
     var Card = Backbone.View.extend({
-
-      initialize: function () {
+      initialize: function (options) {
         var $ = Backbone.$;
         var styleId = 'card_css';
 
         if (!$('#' + styleId).length) {
           Backbone
           .$('<style type="text/css" id="'+ styleId +'"></style>')
-          .html(CardCss)
+          .html(cardCss)
           .prependTo(document.head);  
         }      
+
+        this.model = options.model;
       },
 
       render: function () {
-        return this.$el.html(_.template(CardTpl)({ 
-          userImg: require.toUrl('./components/Business/Card/img.jpg'),
-          username: '吴彦祖',
-          createtime: '2017-3-1',
-          contentImg:require.toUrl('./components/Business/Card/sample.jpg'),
-          commentcontent:'八路军就拉大栓啊！瞄了一个准！打死个翻译官,火车道就开到济南啊~',
-          commentnum:32,
-          likes:23,
-          commentUrl:require.toUrl('./components/Business/Card/img.jpg')
+        console.log(this.model.imgPath);
+        return this.$el.html(_.template(cardTpl)({
+          imgPath: require.toUrl(this.model.imgPath),
+          username: this.model.username,
+          comment: this.model.comment,
+          commentCount: this.model.commentCount,
+          likeCount: this.model.likeCount
         }));
       }
     });
 
     return Card;
 });
--3

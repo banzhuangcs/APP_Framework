@@ -34,8 +34,8 @@ define([
         alert('toggle');
       },
 
-      render: function (value) {
-        return this.$el.html(_.template(headerTpl)({ title: value }));
+      render: function (text) {
+        return this.$el.html(_.template(headerTpl)({ title: text }));
       }
     });
 
