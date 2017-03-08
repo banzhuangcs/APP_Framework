@@ -69,11 +69,14 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
   }
 
   ScrollLoad.prototype.updateNodePos = function () {
+    this.cacheNodePos = [];
     var list = Array.prototype.slice.call($(this.itemClass));
 
     list.forEach((function (node) {
       this.cacheNodePos.push({
         node: node,
+        top: node.offsetTop,
+        height: node.offsetHeight,
         img: node.querySelector('img')
       });  
     }).bind(this));
@@ -84,13 +87,20 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
     this.scrollListener();   
   };
 
+  ScrollLoad.prototype.deatchScrollListener = function () {
+    this.global.removeEventListener('scroll', this.scrollListener, false);
+  };
+
   ScrollLoad.prototype.scrollListener = function () {
+    var scrollTop = this.finalGlobal.scrollTop;
+
     if (this.hasLoading || !this.hasMoreData) {
+      this.deatchScrollListener();
       return;
     }
-    
+
     // 懒加载图片  
-    this.lazyLoading.updateImgSrc(this.finalGlobal.scrollTop, this.visualHeight);      
+    this.lazyLoading.updateImgSrc(this.finalGlobal.scrollTop, this.visualHeight);
 
     if (this.isBottom() || this.hasFirstLoad) {
       this.hasFirstLoad = false;
@@ -108,12 +118,15 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
         // 添加子元素用到懒加载处理  
         this.lazyLoading.append(this.cacheNodePos);
 
-        this.lazyLoading.updateImgSrc(this.finalGlobal.scrollTop, this.visualHeight);  
-
         if (!data.data.length) {
           this.hasMoreData = false;
           this.showLoadDom('加载完成');
         }
+
+        this.lazyLoading.updateImgSrc(
+          !this.hasMoreData ? scrollTop + this.loadingDom.offsetHeight : scrollTop,
+          this.visualHeight
+        );
 
         this.hasLoading = false;
         this.page++;

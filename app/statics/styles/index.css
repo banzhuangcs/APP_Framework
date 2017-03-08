@@ -17,5 +17,6 @@
 }
 
 .index .main {
+  position: relative;
   height: calc(100% - 1.88rem); 
 }
