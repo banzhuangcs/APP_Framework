@@ -29,16 +29,18 @@ define(['jquery'], function ($) {
     return this;
   };
  
-  LazyLoading.prototype.isVisual = function (node, scrollTop, visualHeight) {
-    return $(node).offset().top + node.offsetHeight - scrollTop <= visualHeight;                       
+  LazyLoading.prototype.isVisual = function (top, height, scrollTop, visualHeight) {
+    return top + height - scrollTop <= visualHeight;                       
   };
 
   LazyLoading.prototype.updateImgSrc = function (scrollTop, visualHeight) {
     this.nodePos.forEach((function (obj) {
       var node = obj.node;
+      var top = obj.top;
+      var height = obj.height;
       var img = obj.img;
-
-      if (!this.isUpdated(img) && this.isVisual(node, scrollTop, visualHeight)) {
+      console.log(top, height, scrollTop, visualHeight, 'kkg');
+      if (!this.isUpdated(img) && this.isVisual(top, height, scrollTop, visualHeight)) {
         img.classList.add(this.className);
         img.classList.add('fade-in');
         img.setAttribute('src', img.getAttribute('data-src'));
