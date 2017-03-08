@@ -38,7 +38,7 @@ define([
         if (!this.$el.has('.main').length) {
           mainEl = $('<div class="main"></div>').insertBefore(this.$el.children().last());
         } else {
-          mainEl = this.$el.find('.main');
+          mainEl = this.$('.main');
         }
         
         mainEl.append(messageListEl);

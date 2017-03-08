@@ -10,63 +10,63 @@ if (isset($page)) {
 			'data' => array(
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300
 				),
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300
 				),
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300
 				),
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300
 				),
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300
 				),
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300
 				),
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300
 				),
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300
 				),
 				array(
 				  'id' => ++$id,
-				  'imgpath' => 'http://ghmagical.com/Public/images/default/head1.jpg',
+				  'imgpath' => 'app/components/Business/Message/img.jpg',
 				  'title' => '莫得有伐',
 				  'readCount' => 100,
 				  'commentCount' => 300

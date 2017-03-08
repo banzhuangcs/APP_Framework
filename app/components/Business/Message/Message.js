@@ -17,10 +17,16 @@ define([
     },
 
     initialize: function (options) {
-      Backbone
-        .$('<style type="text/css"></style>')
+      var $ = Backbone.$;
+      var styleId = 'message_css';
+
+      if (!$('#' + styleId).length) {
+        Backbone
+        .$('<style type="text/css" id="'+ styleId +'"></style>')
         .html(messageCss)
-        .prependTo(document.head);
+        .prependTo(document.head);  
+      }  
+      
       this.model = options.model;
     },
 

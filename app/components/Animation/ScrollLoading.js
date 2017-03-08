@@ -4,7 +4,7 @@
  * @since V1.0.0 2017-2-27
 */
 
-define(['jquery'], function ($) {
+define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
   var defaults = {
     hasMoreData: true,
     hasLoading: false,
@@ -13,25 +13,33 @@ define(['jquery'], function ($) {
     threshold: 100,
     global: window,
     visualHeight: window.innerHeight,
-    loadMore: function () {}
+    itemClass: '',
+
+    // 接收拉取的数据，然后渲染成DOM
+    display: function () {}
   };
 
+  //定时器
   var throttle = function (fn, wait) {
     var timer, currTime;
 
     return function () {
+      //每一个元素
+      console.log(arguments);
       var args = [].slice.call(arguments);
-
+      //如果存在就结束倒计时
       if (timer) {
         clearTimeout(timer);
       }
-
+      //如果不存在就赋值当前时间
       if (!currTime) {
         currTime = Date.now();
       }
-
+      //当前时间减去创建时间大于等于等待时间
       if (Date.now() - currTime >= wait) {
+        //
         fn.apply(null, args);
+        //赋值当前时间
         currTime = Date.now();
       }
 
@@ -39,18 +47,37 @@ define(['jquery'], function ($) {
         fn.apply(null, args);
       }, 30);
     };
+
   };
 
   function ScrollLoad (options) {
+
+    //
+    console.log(defaults);
     options = Object.assign({}, defaults, options);
+    console.log(options);
     Object.assign(this, options);
 
     this.actualGlobalHeight = this.visualHeight;
     this.hasFirstLoad = true;
     this.finalGlobal = this.getFinalGlobal();
     this.scrollListener = throttle(this.scrollListener.bind(this), 100);
+    this.cacheNodePos = [];
+    this.lazyLoading = new LazyLoading();
+
     this.attachScrollListener();
   }
+
+  ScrollLoad.prototype.updateNodePos = function () {
+    var list = Array.prototype.slice.call($(this.itemClass));
+
+    list.forEach((function (node) {
+      this.cacheNodePos.push({
+        node: node,
+        img: node.querySelector('img')
+      });  
+    }).bind(this));
+  };
 
   ScrollLoad.prototype.attachScrollListener = function () {
     this.global.addEventListener('scroll', this.scrollListener, false); 
@@ -60,7 +87,10 @@ define(['jquery'], function ($) {
   ScrollLoad.prototype.scrollListener = function () {
     if (this.hasLoading || !this.hasMoreData) {
       return;
-    }      
+    }
+    
+    // 懒加载图片  
+    this.lazyLoading.updateImgSrc(this.finalGlobal.scrollTop, this.visualHeight);      
 
     if (this.isBottom() || this.hasFirstLoad) {
       this.hasFirstLoad = false;
@@ -68,9 +98,17 @@ define(['jquery'], function ($) {
       this.showLoadDom('正在加载中...');
 
       this.fetch().then((function (data) {
-        this.loadMore(data.data);
+        this.display(data.data);
         this.hideLoadDom();
         this.actualGlobalHeight = this.finalGlobal.scrollHeight;
+
+        // 缓存子元素的位置
+        this.updateNodePos();
+
+        // 添加子元素用到懒加载处理  
+        this.lazyLoading.append(this.cacheNodePos);
+
+        this.lazyLoading.updateImgSrc(this.finalGlobal.scrollTop, this.visualHeight);  
 
         if (!data.data.length) {
           this.hasMoreData = false;
