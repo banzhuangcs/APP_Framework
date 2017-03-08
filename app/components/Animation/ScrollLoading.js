@@ -19,22 +19,27 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
     display: function () {}
   };
 
+  //定时器
   var throttle = function (fn, wait) {
     var timer, currTime;
 
     return function () {
+      //每一个元素
+      console.log(arguments);
       var args = [].slice.call(arguments);
-
+      //如果存在就结束倒计时
       if (timer) {
         clearTimeout(timer);
       }
-
+      //如果不存在就赋值当前时间
       if (!currTime) {
         currTime = Date.now();
       }
-
+      //当前时间减去创建时间大于等于等待时间
       if (Date.now() - currTime >= wait) {
+        //
         fn.apply(null, args);
+        //赋值当前时间
         currTime = Date.now();
       }
 
@@ -42,10 +47,15 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
         fn.apply(null, args);
       }, 30);
     };
+
   };
 
   function ScrollLoad (options) {
+
+    //
+    console.log(defaults);
     options = Object.assign({}, defaults, options);
+    console.log(options);
     Object.assign(this, options);
 
     this.actualGlobalHeight = this.visualHeight;
