@@ -5,10 +5,9 @@
  */
 
 define(['jquery'], function ($) {
-  function LazyLoading (nodePos) {
+  function LazyLoading () {
     this.className = 'J-loaded';
     this.nodePos = [];
-    this.append(nodePos);
   }
 
   LazyLoading.prototype.get = function (index) {
@@ -39,7 +38,7 @@ define(['jquery'], function ($) {
       var top = obj.top;
       var height = obj.height;
       var img = obj.img;
-      console.log(top, height, scrollTop, visualHeight, 'kkg');
+      console.log(1);
       if (!this.isUpdated(img) && this.isVisual(top, height, scrollTop, visualHeight)) {
         img.classList.add(this.className);
         img.classList.add('fade-in');
