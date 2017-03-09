@@ -7,13 +7,15 @@
 </div>
 <div class="card-content">
   <% if(imgPath) { %>
-  <div class="card-media">
-    <img src="<%= imgPath %>" alt="">
-  </div>
+    <div class="card-media">
+      <img class="fade-out" data-src="<%= imgPath %>" alt="">
+    </div>
   <% } %>
-  <div class="card-inner">
-    <%= comment %>
-  </div>
+  <% if(comment) { %>
+    <div class="card-inner">
+      <%= comment %>
+    </div>
+  <% } %>
 </div>
 <div class="card-attrs">
   <div class="card-state">

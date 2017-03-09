@@ -67,11 +67,12 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
     var list = Array.prototype.slice.call($(this.itemClass));
 
     list.forEach((function (node) {
+      var imgEl = node.querySelector('img');
+
       this.cacheNodePos.push({
-        node: node,
-        top: node.offsetTop,
-        height: node.offsetHeight,
-        img: node.querySelector('img')
+        imgEl: imgEl,
+        top: imgEl ? this.getOffsetTop(imgEl) : null,
+        height: imgEl ? imgEl.offsetHeight : null
       });  
     }).bind(this));
   };
@@ -138,6 +139,18 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
     return this.global.self === this.global 
       ? this.global.document.body
       : this.global;
+  };
+
+  ScrollLoad.prototype.getOffsetTop = function (el) {
+    var offsetTop = el.offsetTop;
+    var parent = el.offsetParent;
+
+    while (parent !== this.finalGlobal) {
+      offsetTop += parent.offsetTop;
+      parent = parent.offsetParent;  
+    }
+
+    return offsetTop;
   };
 
   ScrollLoad.prototype.isBottom = function () {

@@ -33,9 +33,9 @@ define(['SuperView', 'CardList', 'PullLoading'], function (SuperView, CardList, 
     setCardList: function ($cardListEl) {
       var cardListEl = $cardListEl[0];
       this.mainEl.appendChild(cardListEl);
-
+      
       // 下拉刷新
-      this.pullRefresh(cardListEl);
+      //this.pullRefresh(cardListEl);
     },
 
     pullRefresh: function (cardListEl) {

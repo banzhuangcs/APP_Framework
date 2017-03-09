@@ -25,9 +25,8 @@ define([
       },
 
       render: function () {
-        console.log(this.model.imgPath);
         return this.$el.html(_.template(cardTpl)({
-          imgPath: require.toUrl(this.model.imgPath),
+          imgPath: this.model.imgPath ? require.toUrl(this.model.imgPath) : '',
           username: this.model.username,
           comment: this.model.comment,
           commentCount: this.model.commentCount,
