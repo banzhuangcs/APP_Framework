@@ -96,7 +96,6 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
 
   ScrollLoad.prototype.scrollListener = function () {
     var scrollTop = this.finalGlobal.scrollTop;
-    console.log(scrollTop);
     if (this.hasLoading || !this.hasMoreData) {
       this.deatchScrollListener();
       return;
