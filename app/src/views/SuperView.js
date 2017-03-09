@@ -16,8 +16,12 @@ define([
       this.$el.append(this.header.render(text));
     };
 
-    SuperView.prototype.setFooter = function () {
-      this.footer = new Footer({ className: 'foot-toolbar' });
+    SuperView.prototype.setFooter = function (badge, activeIndex) {
+      this.footer = new Footer({ 
+        className: 'foot-toolbar', 
+        badge: badge, 
+        activeIndex: activeIndex 
+      });
       this.$el.append(this.footer.render());
     };
 

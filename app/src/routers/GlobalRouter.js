@@ -7,33 +7,40 @@
 define(['backbone'], function (Backbone) {
   var GlobalRouter = Backbone.Router.extend({
     routes: {
-      '': 'indexView',
-      'dynamic': 'dynamicView',
-      'friends': 'friendsView'
+      '': 'index',
+      'dynamic': 'dynamic',
+      'friends': 'friends'
     },
 
-    initialize: function (views) {
-      this.views = views;
+    initialize: function (view) {
+      this.view = view;
     },
 
-    indexView: function () {
-      this.destroyView();
-      this.views['indexView'].render();
+    index: function () {
+      this.destroy();
+      
+      var IndexView = this.view['indexView'];
+      this.indexView = new IndexView(IndexView.options);
+      this.indexView.render();
     },
 
-    dynamicView: function () {
-      this.destroyView();
-      this.views['dynamicView'].render();
+    dynamic: function () {
+      this.destroy();
+      
+      var DynamicView = this.view['dynamicView'];
+      this.dynamicView = new DynamicView(DynamicView.options);
+      this.dynamicView.render();
     },
 
-    friendsView: function () {
-      this.destroyView();
-      this.views['friendsView'].render();
+    friends: function () {
     },
 
-    destroyView: function () {
-      Object.keys(this.views).forEach((function (name) {
-        this.views[name].destroy();
+    destroy: function () {
+      Object.keys(this.view).forEach((function (name) {
+        if (this[name]) {
+          this[name].destroy();
+          delete this[name];
+        }  
       }).bind(this));
     }
   });

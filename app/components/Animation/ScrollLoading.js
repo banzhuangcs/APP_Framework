@@ -24,8 +24,6 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
     var timer, currTime;
 
     return function () {
-      //每一个元素
-      console.log(arguments);
       var args = [].slice.call(arguments);
       //如果存在就结束倒计时
       if (timer) {
@@ -51,11 +49,7 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
   };
 
   function ScrollLoad (options) {
-
-    //
-    console.log(defaults);
     options = Object.assign({}, defaults, options);
-    console.log(options);
     Object.assign(this, options);
 
     this.actualGlobalHeight = this.visualHeight;
@@ -158,7 +152,7 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
         url: this.dataUrl,
         dataType: 'json',
         type: 'GET',
-        timeout: 10000,
+        timeout: 20000,
         data: { page: this.page },
         success: resolve,
         reject: reject
