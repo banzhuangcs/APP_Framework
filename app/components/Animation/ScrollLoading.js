@@ -25,7 +25,6 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
 
     return function () {
       //每一个元素
-      console.log(arguments);
       var args = [].slice.call(arguments);
       //如果存在就结束倒计时
       if (timer) {
@@ -51,17 +50,21 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
   };
 
   function ScrollLoad (options) {
-
-    //
-    console.log(defaults);
+    //Object.assign ES6语法将所有可枚举的属性的值从一个或多个源对象复制到目标对象。它将返回目标对象。
+    //返回新的options对象
     options = Object.assign({}, defaults, options);
-    console.log(options);
+    //把新对象和this进行枚举赋值
     Object.assign(this, options);
-
+    //外层容器实际高度
     this.actualGlobalHeight = this.visualHeight;
+
     this.hasFirstLoad = true;
+    //外层容器
     this.finalGlobal = this.getFinalGlobal();
+
+
     this.scrollListener = throttle(this.scrollListener.bind(this), 100);
+
     this.cacheNodePos = [];
     this.lazyLoading = new LazyLoading();
 
@@ -93,7 +96,7 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
 
   ScrollLoad.prototype.scrollListener = function () {
     var scrollTop = this.finalGlobal.scrollTop;
-
+    console.log(scrollTop);
     if (this.hasLoading || !this.hasMoreData) {
       this.deatchScrollListener();
       return;
@@ -141,6 +144,7 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
   };
 
   ScrollLoad.prototype.getFinalGlobal = function () {
+    //判断局部滚动还是全局滚动，如果是全局,globla.self会等于global
     return this.global.self === this.global 
       ? this.global.document.body
       : this.global;
