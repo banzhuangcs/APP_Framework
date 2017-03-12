@@ -12,7 +12,7 @@ define(['SuperView', 'CardList', 'PullLoading'], function (SuperView, CardList, 
       // 添加页面所需要的组件
       this.setHeader('动态');
       this.setMain();
-      this.setFooter();
+      this.setFooter(4, 1);
       
       // 添加CardList
       this.getCards();
@@ -20,7 +20,6 @@ define(['SuperView', 'CardList', 'PullLoading'], function (SuperView, CardList, 
 
     getCards: function () {
       var self = this;
-
       setTimeout(function () {
         new CardList({
           className: 'card-list',

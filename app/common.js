@@ -39,6 +39,7 @@ require.config({
     'IndexView': sourcePath + 'views/IndexView',
     'DynamicView': sourcePath + 'views/DynamicView',
     'FriendsView': sourcePath + 'views/FriendsView',
+    'MyView': sourcePath + 'views/MyView',
     
     /* 公共组件 */
     'Header': commonComponentPath + 'Header/Header',
@@ -49,6 +50,10 @@ require.config({
     'CardList': businessComponentPath + 'CardList/CardList',
     'Message': businessComponentPath + 'Message/Message',
     'MessageList': businessComponentPath + 'MessageList/MessageList',
+    'Friends': businessComponentPath + 'Friends/Friends',
+    'FriendsList': businessComponentPath + 'FriendsList/FriendsList',
+    'MyCard': businessComponentPath + 'MyCard/MyCard',
+    'MyCardList': businessComponentPath + 'MyCardList/MyCardList',
 
     /* 动画组件 */
     'ScrollLoading': animationComponentPath + 'ScrollLoading',

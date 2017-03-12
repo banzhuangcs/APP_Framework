@@ -7,33 +7,54 @@
 define(['backbone'], function (Backbone) {
   var GlobalRouter = Backbone.Router.extend({
     routes: {
-      '': 'indexView',
-      'dynamic': 'dynamicView',
-      'friends': 'friendsView'
+      '': 'index',
+      'dynamic': 'dynamic',
+      'friends': 'friends',
+      'my': 'my'
     },
 
-    initialize: function (views) {
-      this.views = views;
+    initialize: function (view) {
+      this.view = view;
     },
 
-    indexView: function () {
-      this.destroyView();
-      this.views['indexView'].render();
+    index: function () {
+      this.destroy();
+      
+      var IndexView = this.view['indexView'];
+      this.indexView = new IndexView(IndexView.options);
+      this.indexView.render();
     },
 
-    dynamicView: function () {
-      this.destroyView();
-      this.views['dynamicView'].render();
+    dynamic: function () {
+      this.destroy();
+      
+      var DynamicView = this.view['dynamicView'];
+      this.dynamicView = new DynamicView(DynamicView.options);
+      this.dynamicView.render();
     },
 
-    friendsView: function () {
-      this.destroyView();
-      this.views['friendsView'].render();
+    friends: function () {
+      this.destroy();
+
+      var FriendsView = this.view['friendsView'];
+      this.friendsView = new FriendsView(FriendsView.options);
+      this.friendsView.render();
     },
 
-    destroyView: function () {
-      Object.keys(this.views).forEach((function (name) {
-        this.views[name].destroy();
+    my: function () {
+      this.destroy();
+
+      var MyView = this.view['myView'];
+      this.myView = new MyView(MyView.options);
+      this.myView.render();
+    },
+
+    destroy: function () {
+      Object.keys(this.view).forEach((function (name) {
+        if (this[name]) {
+          this[name].destroy();
+          delete this[name];
+        }  
       }).bind(this));
     }
   });

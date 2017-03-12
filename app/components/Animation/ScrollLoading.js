@@ -161,7 +161,7 @@ define(['jquery', 'LazyLoading'], function ($, LazyLoading) {
         url: this.dataUrl,
         dataType: 'json',
         type: 'GET',
-        timeout: 10000,
+        timeout: 20000,
         data: { page: this.page },
         success: resolve,
         reject: reject

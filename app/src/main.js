@@ -4,16 +4,15 @@
  * @since V1.0.0 2017-2-2
 */
 
-define(['GlobalRouter', 'IndexView', 'DynamicView'], function (GlobalRouter) {
+define(['GlobalRouter', 'IndexView', 'DynamicView', 'FriendsView', 'MyView'], function (GlobalRouter) {
   // 获取所有View
-  var args = Array.prototype.slice.call(arguments, 1);
-  var views = {};
+  var Views = Array.prototype.slice.call(arguments, 1);
+  var view = {};
 
-  args.forEach(function (View) {
-  	var options = View.options;
-    views[options.funcName] = new View(options);
+  Views.forEach(function (View) {
+    view[View.options.funcName] = View;
   });
   
   // 开启全局控制器
-  GlobalRouter(views);
+  GlobalRouter(view);
 });

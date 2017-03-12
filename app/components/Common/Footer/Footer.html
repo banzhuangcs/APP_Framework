@@ -1,19 +1,22 @@
 <div class="foot-toolbar-inner">
-	<a href="#" class="foot-tab-link active">
-		<i class="icon ion-ios-home"></i>
-		<label>主页</label>
-	</a>
-	<a href="#dynamic" class="foot-tab-link">
-		<i class="icon ion-star"></i>
-		<label>动态</label>
-	</a>
-	<a href="#friends" class="foot-tab-link">
-		<i class="icon ion-android-contacts"></i>
-		<label>好友</label>
-	</a>
-	<a href="#settingView" class="foot-tab-link">
-		<i class="icon ion ion-android-person">
-			<span class="badge" id="badge"><%= badge %></span>
-		</i>
-		<label>我的</label></a>
+  <a href="#" class="foot-tab-link <% if (activeIndex == 0) { %> active <% } %>">
+    <i class="icon ion-ios-home"></i>
+    <label>主页</label>
+  </a>
+
+  <a href="#dynamic" class="foot-tab-link <% if (activeIndex == 1) { %> active <% } %>">
+    <i class="icon ion-star"></i>
+    <label>动态</label>
+  </a>
+  <a href="#friends" class="foot-tab-link <% if (activeIndex == 2) { %> active <% } %>">
+    <i class="icon ion-android-contacts"></i>
+    <label>好友</label>
+  </a>
+  <a href="#my" class="foot-tab-link <% if (activeIndex == 3) { %> active <% } %>">
+    <i class="icon ion ion-android-person">
+      <% if(badge) { %>
+        <span class="badge" id="badge"><%= badge %></span>
+      <% } %>
+    </i>
+    <label>我的</label></a>
 </div>

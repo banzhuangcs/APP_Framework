@@ -12,7 +12,7 @@ define(['SuperView', 'MessageList', 'PullLoading'], function (SuperView, Message
       // 添加页面所需要的组件
       this.setHeader('首页');
       this.setMain();
-      this.setFooter();
+      this.setFooter(3, 0);
 
       // 添加消息列表组件
       this.getMessages();

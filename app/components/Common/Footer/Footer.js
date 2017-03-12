@@ -11,7 +11,7 @@ define([
  'text!Footer.html',
  'text!Footer.css'], function($, Backbone, _, footerTpl, footerCss){
     var Footer = Backbone.View.extend({
-      initialize: function () {
+      initialize: function (options) {
         var $ = Backbone.$;
         var styleId = 'footer_css';
         
@@ -21,10 +21,16 @@ define([
           .html(footerCss)
           .prependTo(document.head);  
         }
+
+        this.badge = options.badge;
+        this.activeIndex = options.activeIndex;
       },
 
       render: function () {
-        return this.$el.html(_.template(footerTpl)({ badge: 4 }));
+        return this.$el.html(_.template(footerTpl)({
+          badge: this.badge, 
+          activeIndex: this.activeIndex 
+        }));
       }
     });
 

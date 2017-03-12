@@ -1,5 +1,5 @@
 /**
- * @desc Card组件
+ * @desc Friends组件
  * @author 吴彦祖
  * @since V1.0.0 2017-2-28
 */
@@ -7,17 +7,17 @@ define([
   'require',
   'backbone',
   'underscore',
-  'text!Card.html',
-  'text!Card.css'], function (require, Backbone, _, cardTpl, cardCss) {
-    var Card = Backbone.View.extend({
+  'text!Friends.html',
+  'text!Friends.css'], function (require, Backbone, _, friendsTpl, friendsCss) {
+    var Friends = Backbone.View.extend({
       initialize: function (options) {
         var $ = Backbone.$;
-        var styleId = 'card_css';
+        var styleId = 'friends_css';
 
         if (!$('#' + styleId).length) {
           Backbone
           .$('<style type="text/css" id="'+ styleId +'"></style>')
-          .html(cardCss)
+          .html(friendsCss)
           .prependTo(document.head);  
         }      
 
@@ -25,15 +25,14 @@ define([
       },
 
       render: function () {
-        return this.$el.html(_.template(cardTpl)({
+        return this.$el.html(_.template(friendsTpl)({
           imgPath: this.model.imgPath,
           username: this.model.username,
-          comment: this.model.comment,
-          commentCount: this.model.commentCount,
-          likeCount: this.model.likeCount
+          type: this.model.type || "",
+          comment: this.model.comment
         }));
       }
     });
 
-    return Card;
+    return Friends;
 });

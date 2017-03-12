@@ -33,6 +33,7 @@ define(['jquery'], function ($) {
   };
 
   LazyLoading.prototype.updateImgSrc = function (scrollTop, visualHeight) {
+    console.log(scrollTop, 'xx');
     this.nodePos.forEach((function (obj) {
       var node = obj.node;
       var top = obj.top;
