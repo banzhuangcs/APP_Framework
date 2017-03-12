@@ -5,40 +5,46 @@
  */
 
 define([
+  'jquery',
   'Header',
-  'Footer'], function (Header, Footer) {
+  'Footer'], function ($, Header, Footer) {
     function SuperView (options) {
       this.funcName = options.funcName;
     }
 
-    SuperView.prototype.setHeader = function (text) {
-      this.header = new Header({ className: 'header bg-green' });  
-      this.$el.append(this.header.render(text));
+    SuperView.prototype.setHeader = function (text, back, onLeftClick, onRightClick) {
+      var options = {
+        className: 'header bg-green',
+        text: text,
+        back: back,
+        onLeftClick: onLeftClick,
+        onRightClick: onRightClick
+      };
+
+      this
+        .$el
+        .append((new Header(options)).render());
     };
 
     SuperView.prototype.setFooter = function (badge, activeIndex) {
-      this.footer = new Footer({ 
-        className: 'foot-toolbar', 
-        badge: badge, 
-        activeIndex: activeIndex 
-      });
-      this.$el.append(this.footer.render());
+      this
+        .$el
+        .append((new Footer({ className: 'foot-toolbar', badge: badge, activeIndex: activeIndex })).render());
     };
 
     SuperView.prototype.setMain = function () {
-      this.mainEl = document.createElement('div');
-      this.mainEl.className = 'main';
-      this.$el.append(this.mainEl);
+      this.$mainEl = $('<div class="main"></div>').appendTo(this.$el);
     };
 
     // 渲染View
     SuperView.prototype.render = function () {
-      document.body.appendChild(this.el);
+      $(document.body).append(this.$el);
     };
 
     // 删除View
     SuperView.prototype.destroy = function () {
-      document.getElementById(this.el.id) && document.body.removeChild(this.el);
+      var $el = $('#' + this.el.id);
+      $el.length && $el[0].nodeType === 1 && this.$el.remove();
     };
 
     return SuperView;

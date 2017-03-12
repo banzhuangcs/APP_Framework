@@ -36,15 +36,18 @@ require.config({
 
     /* 页面类(View) */
     'SuperView': sourcePath + 'views/SuperView',
+    'SlideScreenView': sourcePath + 'views/SlideScreenView',
     'IndexView': sourcePath + 'views/IndexView',
     'DynamicView': sourcePath + 'views/DynamicView',
     'FriendsView': sourcePath + 'views/FriendsView',
+    'DetailView': sourcePath + 'views/DetailView',
     
     /* 公共组件 */
-    'Header': commonComponentPath + 'Header/Header',
-    'Footer': commonComponentPath + 'Footer/Footer',
+    'Carousel': commonComponentPath + 'Carousel/Carousel',
 
     /* 业务组件 */
+    'Header': businessComponentPath + 'Header/Header',
+    'Footer': businessComponentPath + 'Footer/Footer',
     'Card': businessComponentPath + 'Card/Card',
     'CardList': businessComponentPath + 'CardList/CardList',
     'Message': businessComponentPath + 'Message/Message',

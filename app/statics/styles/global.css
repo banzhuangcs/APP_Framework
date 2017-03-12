@@ -1,10 +1,12 @@
 @charset "utf-8";
 
+body {
+  overflow-x: hidden;
+}
+
 .view {
-  display: -webkit-flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;  
-  align-items: stretch;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
   height: 100%;
 }
 
@@ -18,5 +20,7 @@
 
 .view .main {
   position: relative;
-  height: calc(100% - 1.88rem); 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-flex: 1;     
 }

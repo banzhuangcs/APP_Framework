@@ -85,3 +85,10 @@
 .bg-green { background-color: #1abc9c; }
 .bg-white { background-color: #fff; }
 .bg-gray { background-color: #d9d9d9; }
+.bg-shallow-gray { background-color: #efeff4; }
+
+.opa0 { opacity: 0; }
+.opa02 { opacity: .2; }
+.opa05 { opacity: .5; }
+.opa08 { opacity: .8; }
+.opa1 { opacity: 1; }

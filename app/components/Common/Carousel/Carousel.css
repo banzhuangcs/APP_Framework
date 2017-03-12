@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+.carousel {
+  position: relative;
+  width: 100%;  
+  height: 3rem;
+  overflow-x: hidden; 
+  transform: translate3d(0, 0, 0);
+  transition: transform 0s; 
+}
+
+.carousel-inner {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  -webkit-box-pack: start;
+}
+
+.carousel-inner.swipe {
+  transition-duration: .3s;
+}
+
+.carousel-item {
+  height: 100%;
+  -webkit-box-flex: 1;
+}
+
+.carousel-item img { 
+  display: block;
+  width: 100%;
+  height: 100%;  
+}
+
+.carousel-pagination {
+  position: absolute;
+  left: 50%;
+  bottom: .2rem;
+  transform: translateX(-50%);
+}
+
+.carousel-paination-inner {
+  display: -webkit-flex;
+  -webkit-flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1.5rem;
+}
+
+.carousel-pagination-item {
+  width: .16rem;
+  height: .16rem;
+  flex: none;
+  border-radius: 100%;
+  opacity: .5;
+  transition: opacity .5s;
+  background: #fff;
+}
+
+.carousel-pagination-item.active {
+  opacity: 1;
+}

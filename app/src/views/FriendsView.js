@@ -39,7 +39,7 @@ define([
     _.extend(FriendsView.prototype, SuperView.prototype); 
 
     return new FriendsView({
-      id: 'friends',
+      id: 'friends_view',
       className: 'friends',
       funcName: 'friendsView'
     });
