@@ -10,7 +10,8 @@ define(['backbone'], function (Backbone) {
       '': 'index',
       'dynamic': 'dynamic',
       'friends': 'friends',
-      'my': 'my'
+      'my': 'my',
+      'carousel': 'carousel'
     },
 
     initialize: function (view) {
@@ -31,6 +32,14 @@ define(['backbone'], function (Backbone) {
       var DynamicView = this.view['dynamicView'];
       this.dynamicView = new DynamicView(DynamicView.options);
       this.dynamicView.render();
+    },
+
+    carousel: function () {
+      this.destroy();
+
+      var CarouselView = this.view['carouselView'];
+      this.carouselView = new CarouselView(CarouselView.options);
+      this.carouselView.render();
     },
 
     friends: function () {

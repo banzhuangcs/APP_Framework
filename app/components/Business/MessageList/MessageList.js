@@ -8,7 +8,9 @@ define(['backbone', 'Message', 'ScrollLoading'], function (Backbone, Message, Sc
   return Backbone.View.extend({
     initialize: function (options) {
       this.callback = options.callback;
+      this.onSlide = options.onSlide;
       this.setStyle();
+
       this.scrollLoading = new ScrollLoading({
         global: this.el,
         visualHeight: options.visualHeight,
@@ -22,16 +24,19 @@ define(['backbone', 'Message', 'ScrollLoading'], function (Backbone, Message, Sc
     map: function (data) {
       Array.isArray(data) || (data = [ data ]);
 
+      var onSlide = this.onSlide;
+
       return data.map(function (item) {
         return new Message({ 
           className: 'message pt2 pb2 pl2 pr2 bg-white',
-          model: item
+          model: item,
+          onSlide: onSlide
         });
       });
     },
     
     setStyle: function () {
-      this.el.style.cssText = 'position: relative; z-index: 1; height: 100%; overflow: auto';
+      this.el.style.cssText = 'position: relative; z-index: 1; -webkit-box-flex: 1; overflow: auto';
     },
 
     render: function (data) {

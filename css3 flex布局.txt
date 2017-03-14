@@ -18,3 +18,12 @@ align-items: 定义了子元素在交叉轴的对齐方式
 在子元素的
 flex-grow: 等比划分容器 0：如果出现剩余空间也不自适应的放大
 flex-shrink: 等比划分容器 0：如果剩余空间不够也不会自适应的缩小
+flex-basics: 就是定义主轴的大小
+
+
+flex-shrink：当子元素在主轴定义的大小超过了主轴的大小，那么元素就得按照设置的flex-shrink进行缩了，缩放公式为每一子项加权值/总的加权值 * 溢出溢出的大小
+加权值就是 flex-shrink * flex-basics(width | height)
+flex-grow: 其实就是当子元素的总和不满足于父元素的时候，那么子元素就得根据flex-grow进行放大了
+计算公式子元素的flex-grow / 所有子元素的flex-grow总和 * 剩余值
+
+ripple rippleEffect

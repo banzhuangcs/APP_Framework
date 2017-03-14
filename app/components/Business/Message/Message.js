@@ -28,10 +28,11 @@ define([
       }  
       
       this.model = options.model;
+      this.onSlide = options.onSlide;
     },
 
-    handleInterlude: function () {
-      alert('handleInterlude');
+    handleInterlude: function (event) {
+      this.onSlide(event);
     },
 
     render: function () {

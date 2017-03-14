@@ -25,18 +25,17 @@ define(['SuperView','FriendsList'], function (SuperView, FriendsList) {
           new FriendsList({
             className: 'Friends-list',
             callback: self.setFriendsList.bind(self),
-            visualHeight: self.mainEl.offsetHeight
+            visualHeight: self.$mainEl.height()
           });
         }, 0);
       },
 
       setFriendsList: function ($friendsListEl) {
         var friendsListEl = $friendsListEl[0];
-        this.mainEl.appendChild(friendsListEl);
+        this.$mainEl.append(friendsListEl);
       },
 
     });
-
 
     FriendsView.options = {
       id: 'friends',

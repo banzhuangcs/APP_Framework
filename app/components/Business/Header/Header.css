@@ -13,8 +13,11 @@
   -webkit-box-pack: justify;
 }
 
-.header-nav-icon {
+.header-icon {
   display: block;
+}
+
+.header-nav-icon {
   width: .3rem;
   height: .4rem;
 }
@@ -30,6 +33,15 @@
 
 .header-nav-icon:after {
   content: "\f20d";
+}
+
+.header-back-icon {
+  width: .2rem;
+  height: .4rem;
+}
+
+.header-back-icon:after {
+  content: "\f124";
 }
 
 .header-more-icon {

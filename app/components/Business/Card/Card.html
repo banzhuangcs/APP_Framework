@@ -6,14 +6,23 @@
   </div>
 </div>
 <div class="card-content">
+<<<<<<< HEAD
   <% if(imgPath != null) { %>
   <div class="card-media">
     <img src="<%= imgPath %>" alt="">
   </div>
+=======
+  <% if(imgPath) { %>
+    <div class="card-media">
+      <img class="fade-out" data-src="<%= imgPath %>" alt="">
+    </div>
   <% } %>
-  <div class="card-inner">
-    <%= comment %>
-  </div>
+  <% if(comment) { %>
+    <div class="card-inner">
+      <%= comment %>
+    </div>
+>>>>>>> fc08b9191f97e58a37ffc37f67e0040b05eb01bf
+  <% } %>
 </div>
 <div class="card-attrs">
   <div class="card-state">

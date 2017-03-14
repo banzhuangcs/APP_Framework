@@ -20,32 +20,34 @@ define(['SuperView', 'CardList', 'PullLoading'], function (SuperView, CardList, 
 
     getCards: function () {
       var self = this;
+
+      
+      console.log(this);
       setTimeout(function () {
         new CardList({
           className: 'card-list',
           callback: self.setCardList.bind(self),
-          visualHeight: self.mainEl.offsetHeight
+          visualHeight: self.$mainEl.height()
         });
       }, 0);
     },
 
     setCardList: function ($cardListEl) {
-      var cardListEl = $cardListEl[0];
-      this.mainEl.appendChild(cardListEl);
-
+      this.$mainEl.append($cardListEl);
+      
       // 下拉刷新
-      this.pullRefresh(cardListEl);
+      this.pullRefresh($cardListEl);
     },
 
-    pullRefresh: function (cardListEl) {
+    pullRefresh: function ($cardListEl) {
       if (this.pull) {
         return;
       }
 
       this.pull = new PullLoading({
-        global: cardListEl,
-        wrapper: this.mainEl,
-        slideEnough: cardListEl.offsetHeight / 3,
+        global: $cardListEl[0],
+        wrapper: this.$mainEl[0],
+        slideEnough: $cardListEl.height() / 3,
         onRefresh: function (success, error) {
           setTimeout(function () {
             console.log('刷新完成');
@@ -57,7 +59,7 @@ define(['SuperView', 'CardList', 'PullLoading'], function (SuperView, CardList, 
   });
 
   DynamicView.options = {
-    id: 'dynamic',
+    id: 'dynamic_view',
     className: 'view',
     funcName: 'dynamicView'
   };

@@ -45,31 +45,6 @@ if (isset($page)) {
           'imgPath' => './app/components/Business/Card/img.jpg',
           'comment' => '我是彭于晏不是吴彦祖',
           'username' => 'B-W掘机'
-        ),
-        array(
-          'id' => ++$id,
-          'type' => 'D',
-          'imgPath' => './app/components/Business/Card/img.jpg',
-          'comment' => '我是彭于晏不是吴彦祖',
-          'username' => 'B-挖掘机'
-        ),
-        array(
-          'id' => ++$id,
-          'imgPath' => './app/components/Business/Card/img.jpg',
-          'comment' => '我是彭于晏不是吴彦祖',
-          'username' => 'B-掘机'
-        ),
-        array(
-          'id' => ++$id,
-          'imgPath' => './app/components/Business/Card/img.jpg',
-          'comment' => '我是彭于晏不是吴彦祖',
-          'username' => 'B-W挖掘机'
-        ),
-        array(
-          'id' => ++$id,
-          'imgPath' => './app/components/Business/Card/img.jpg',
-          'comment' => '我是彭于晏不是吴彦祖',
-          'username' => 'B-W掘机'
         )
       )
     ));

@@ -25,14 +25,15 @@ define(['SuperView','MyCardList'], function (SuperView, MyCardList) {
           new MyCardList({
             className: 'My-list',
             callback: self.setMyCardList.bind(self),
-            visualHeight: self.mainEl.offsetHeight
+            visualHeight: self.$mainEl.height()
           });
         }, 0);
       },
 
-      setMyCardList: function ($MyCardListEl) {
-        var MyCardListEl = $MyCardListEl[0];
-        this.mainEl.appendChild(MyCardListEl);
+      setMyCardList: function ($myCardListEl) {
+        var myCardListEl = $myCardListEl[0];
+        this.$mainEl.append(myCardListEl);
+
       },
 
     });
